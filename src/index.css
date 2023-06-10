@@ -16,7 +16,7 @@
 .app-screen {
   /* background: rgb(39, 85, 171); */
   /* padding-top: 60px; */
-  padding-top: 7%;
+  padding-top: 6%;
   background: rgb(107, 144, 34);
 }
 
@@ -273,8 +273,9 @@
 .participants-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 80%;
+  /* justify-content: center;
+  align-items: center; */
 }
 
 .participants-cards {
@@ -286,6 +287,35 @@
 }
 
 .pard-card_content {
+  padding-top: 5px;
   display: flex;
-  gap: 40px;
+  justify-content: space-between;
 }
+
+.part-number {
+  font-size: 15px;
+  font-family: 'Comme';
+  font-weight: 600;
+  color: rgb(210, 88, 23);
+}
+
+.nickname {
+  font-family: 'Architects Daughter';
+  font-size: 17px;
+  color: rgb(7, 89, 7);
+  font-weight: bold;
+}
+
+.years-gender_block {
+  display: flex;
+  font-size: 14px;
+  font-family: 'Architects Daughter';
+  gap: 17px;
+}
+
+.city {
+  font-size: 15px;
+  font-family: 'Architects Daughter';
+  font-weight: bold;
+}
+
