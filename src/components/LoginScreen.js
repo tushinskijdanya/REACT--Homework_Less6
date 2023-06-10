@@ -79,7 +79,7 @@ function LoginScreen () {
 
     function useSaved (e) {
         let newUser = JSON.parse(localStorage.getItem('users'));
-        if (localStorage.getItem('users') !== null && !showAppScreen) {
+        if (localStorage.getItem('users') !== null) {
             let conf = confirm('Do you want to use your saved login and password?');
             if (conf) {
                 setLoginForm((prev) => {
@@ -100,27 +100,25 @@ function LoginScreen () {
     
     return (
         <div className="login-screen">
-            <div className="container">
-                <div className='login-container'>
-                    <h1 className='logo'>FLO-words</h1>
-                    <form className='login-form'>
-                        <div><input onClick={confSaved !== 2 ? ((e) => useSaved(e)) : ((e) => e.preventDefault(e))} onChange={(e) => setLoginForm({...loginForm, login: e.target.value})} value={loginForm.login} name='login' type='text' placeholder='login'/></div>
-                        <div className='password-input'>
-                            <input onClick={confSaved !== 1 ? ((e) => useSaved(e)) : ((e) => e.preventDefault(e))} onChange={(e) => setLoginForm({...loginForm, password: e.target.value})} value={loginForm.password} name='password' type={hide.type} placeholder='password' />
-                            <div onClick={changeHide} className='password-hide'>
-                                <img src={hide.hide_works ? hide.hide_off : hide.hide_on} alt="eye" />
-                            </div>
-                        </div> 
-                        <div className='loginContainer-buttons'>
-                            <div className='login-button'>
-                                <button onClick={loginApp}>LOGIN</button>
-                            </div>
-                            <div className='registration-button'>
-                                <span onClick={toRegister}>REGISTER A NEW USER</span>
-                            </div>
+            <div className='login-container'>
+                <h1 className='logo'>FLO-words</h1>
+                <form className='login-form'>
+                    <div><input onClick={confSaved !== 2 ? ((e) => useSaved(e)) : ((e) => e.preventDefault(e))} onChange={(e) => setLoginForm({...loginForm, login: e.target.value})} value={loginForm.login} name='login' type='text' placeholder='login'/></div>
+                    <div className='password-input'>
+                        <input onClick={confSaved !== 1 ? ((e) => useSaved(e)) : ((e) => e.preventDefault(e))} onChange={(e) => setLoginForm({...loginForm, password: e.target.value})} value={loginForm.password} name='password' type={hide.type} placeholder='password' />
+                        <div onClick={changeHide} className='password-hide'>
+                            <img src={hide.hide_works ? hide.hide_off : hide.hide_on} alt="eye" />
                         </div>
-                    </form>
-                </div>
+                    </div> 
+                    <div className='loginContainer-buttons'>
+                        <div className='login-button'>
+                            <button onClick={loginApp}>LOGIN</button>
+                        </div>
+                        <div className='registration-button'>
+                            <span onClick={toRegister}>REGISTER A NEW USER</span>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     );
