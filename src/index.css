@@ -8,7 +8,7 @@
 .app-screen {
   width: 100vw;
   height: 100vh;
-  background-image: url(./images/login_screen.jpg);
+  background-image: url(/public/images/login_screen.jpg);
   background-position-y: 10px;
   background-position-x: -190px;
 }
