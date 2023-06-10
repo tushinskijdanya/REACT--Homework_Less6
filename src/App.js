@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <ThemeContext.Provider value={{setShowAppScreen}}>
+      <ThemeContext.Provider value={{showAppScreen, setShowAppScreen}}>
         {
           !showAppScreen ? 
           <LoginScreen /> : 

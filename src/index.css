@@ -8,11 +8,14 @@
 .app-screen {
   width: 100vw;
   height: 100vh;
-  background: rgb(239, 99, 122);
+  background-image: url(./images/login_screen.jpg);
+  background-position-y: 10px;
+  background-position-x: -190px;
 }
 
 .app-screen {
-  background: rgb(39, 85, 171);
+  /* background: rgb(39, 85, 171); */
+  background: rgb(107, 144, 34);
 }
 
 .container {
@@ -25,4 +28,107 @@
   height: 40px;
   color: aliceblue;
   background: rgb(168, 39, 19);
+}
+
+.login-screen {
+  padding-top: 15%;
+}
+
+.login-container {
+  width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  color: antiquewhite;
+  margin-bottom: 25px;
+  font-family: 'Foldit';
+  font-weight: 500;
+  font-size: 50px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-form input {
+  width: 400px;
+  height: 50px;
+  padding-left: 20px;
+  padding-right: 50px;
+  background: none;
+  color: antiquewhite;
+  font-size: 17px;
+  letter-spacing: 3px;
+}
+
+.login-form input::placeholder {
+  color: rgba(250, 235, 215, 0.66);
+  font-size: 14px;
+}
+
+.login-form input:focus {
+  outline: none;
+}
+
+.login-form input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.password-input {
+  position: relative;
+}
+
+.password-hide {
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.password-hide img {
+  width: 22px;
+}
+
+.loginContainer-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-button button {
+  width: 150px;
+  height: 40px;
+  font-family: 'Comme';
+  font-weight: 900;
+  background: rgba(235, 142, 20, 0.896);
+  cursor: pointer;
+  border: 1px solid rgb(147, 87, 8);
+}
+
+.login-button button:active {
+  background: rgba(235, 142, 20, 0.637);
+}
+
+.registration-button {
+  position: relative;
+  top: -10px;
+  left: -10px;
+}
+
+.registration-button span {
+  color: rgba(250, 235, 215, 0.753);
+  cursor: pointer;
+  font-family: 'Comme';
+  font-weight: 100;
+  font-size: 14px;
+}
+
+.registration-button span:active {
+  color: rgba(249, 218, 177, 0.525);
 }
