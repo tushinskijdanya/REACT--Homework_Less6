@@ -5,13 +5,14 @@ import { ThemeContext } from '../App';
 
 function LoadCharacter () {
     const { allPart, setAllPart } = useContext(ThemeContext);
-    const { page, setPage } = useContext(AppContext);
+    const { setPage } = useContext(AppContext);
     const [pageLoad, setPageLoad] = useState(true);
     const [newPart, setNewPart] = useState({
         nickname: '',
         age: '',
         gender: '',
-        city: ''
+        city: '',
+        edit_window: false
     });
 
     function addPart (e) {

@@ -4,7 +4,7 @@ import { eye } from '../data/eye';
 import { passwords_basis } from '../data/passwords-basis';
 
 function LoginScreen () {
-    const { showAppScreen, setShowAppScreen } = useContext(ThemeContext);
+    const { setShowAppScreen } = useContext(ThemeContext);
     const [hide, setHide] = useState(eye);
     const [users, setUsers] = useState(passwords_basis);
     const [loginForm, setLoginForm] = useState({
