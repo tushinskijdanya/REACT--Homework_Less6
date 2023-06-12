@@ -31,7 +31,6 @@ function LoadCharacter () {
                 return temp;
             })
             setPageLoad(false);
-            console.log(allPart);
         } else {
             alert('Incorrect input given! Please try agayn. Please note that the "Nickname" and "Age" lines are mandatory!');
         }

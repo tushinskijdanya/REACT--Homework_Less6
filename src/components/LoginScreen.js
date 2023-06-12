@@ -31,7 +31,6 @@ function LoginScreen () {
         let com_passwords = users.map((password) => JSON.stringify(password));
         let  intr = JSON.stringify(loginForm);
         let find = com_passwords.includes(intr);
-        console.log(find);
         if (loginForm.login === '' || loginForm.password === '') {
             if (loginForm.login === '' && loginForm.password === '') {
                 alert('Plese enter your login and password!');

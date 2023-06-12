@@ -6,19 +6,22 @@ import ParticipantsCards from './ParticipantsCards';
 function CharactersList () {
     const { setPage } = useContext(AppContext);
     const { allPart } = useContext(ThemeContext);
-    // const [cartochki, setCartochki] = useState(allPart);
     const [mainWindow, setMainWindow] = useState(true);
+    const [aboutCount, setAboutCount] = useState(0);
 
     let Hello = allPart.map((card, idx) => <ParticipantsCards card={card} key={idx} idx={idx}/> );
 
-    // useEffect(() => {
-    //     setCartochki(allPart);
-    //     Hello = cartochki.map((card, idx) => <ParticipantsCards card={card} key={idx} idx={idx}/> );
-    // }, [allPart]);
+    useEffect(() => {
+        if (aboutCount === 0) {
+            setMainWindow(true);
+        } else if (aboutCount > 0) {
+            setMainWindow(false);
+        }
+    }, [aboutCount]);
 
     return(
         <>
-        <EditContext.Provider value={{mainWindow, setMainWindow}}>
+        <EditContext.Provider value={{mainWindow, setMainWindow, aboutCount, setAboutCount}}>
             <div className='participants-container'>
                 <div className='participants-cards'>
                     {Hello}

@@ -1,10 +1,9 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { ThemeContext } from '../App';
 import { EditContext } from "./CharactersList";
 
 function ParticipantsCards (props) {
-    console.log('props: ', props)
-    const { setMainWindow } = useContext(EditContext);
+    const { setAboutCount } = useContext(EditContext);
     const { setAllPart } = useContext(ThemeContext);
     const [cardData, setCardData] = useState(props.card);
 
@@ -13,7 +12,13 @@ function ParticipantsCards (props) {
             prev[props.idx] = cardData;
             return prev;
         })
-        setMainWindow(true);
+
+        setCardData((prev) => {
+            let temp = {...prev};
+            temp.edit_window = false;
+            return temp;
+        })
+        setAboutCount(prev => prev = prev - 1);
     }
 
     function aboutPlease () {
@@ -25,12 +30,13 @@ function ParticipantsCards (props) {
             temp.city = props.card.city;
             return temp;
         })
-        setMainWindow(true);
+
         setCardData((prev) => {
             let temp = {...prev};
             temp.edit_window = false;
             return temp;
         })
+        setAboutCount(prev => prev = prev - 1);
     }
 
     function whatWindow () {
@@ -39,7 +45,7 @@ function ParticipantsCards (props) {
             temp.edit_window = true;
             return temp;
         })
-        setMainWindow(false);
+        setAboutCount(prev => prev = prev + 1);
     }
 
     return(
