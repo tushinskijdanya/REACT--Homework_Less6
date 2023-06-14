@@ -11,7 +11,7 @@ function LoginScreen () {
         login: '',
         password: ''
     });
-    const [confSaved, useConfSaved] = useState(0);
+    const [confSaved, setConfSaved] = useState(0);
 
     function changeHide () {
         setHide((prev) => {
@@ -76,7 +76,7 @@ function LoginScreen () {
         });
     }, []);
 
-    function useSaved (e) {
+    function userSaved (e) {
         let newUser = JSON.parse(localStorage.getItem('users'));
         if (localStorage.getItem('users') !== null) {
             let conf = confirm('Do you want to use your saved login and password?');
@@ -91,20 +91,28 @@ function LoginScreen () {
         }
 
         if(e.target.name === 'login') {
-            useConfSaved(1);
+            setConfSaved(1);
         } else if(e.target.name === 'password') {
-            useConfSaved(2);
+            setConfSaved(2);
         }
     };
+
+    function click1 (e) {
+        (confSaved !== 2) ? userSaved(e) : e.preventDefault();
+    }
+
+    function click2 (e) {
+        (confSaved !== 1) ? userSaved(e) : e.preventDefault();
+    }
     
     return (
         <div className="login-screen">
             <div className='login-container'>
                 <h1 className='logo'>FLO-words</h1>
                 <form className='login-form'>
-                    <div><input onClick={confSaved !== 2 ? ((e) => useSaved(e)) : ((e) => e.preventDefault(e))} onChange={(e) => setLoginForm({...loginForm, login: e.target.value})} value={loginForm.login} name='login' type='text' placeholder='login'/></div>
+                    <div><input onClick={(e) => click1(e)} onChange={(e) => setLoginForm({...loginForm, login: e.target.value})} value={loginForm.login} name='login' type='text' placeholder='login'/></div>
                     <div className='password-input'>
-                        <input onClick={confSaved !== 1 ? ((e) => useSaved(e)) : ((e) => e.preventDefault(e))} onChange={(e) => setLoginForm({...loginForm, password: e.target.value})} value={loginForm.password} name='password' type={hide.type} placeholder='password' />
+                        <input onClick={(e) => click2(e)} onChange={(e) => setLoginForm({...loginForm, password: e.target.value})} value={loginForm.password} name='password' type={hide.type} placeholder='password' />
                         <div onClick={changeHide} className='password-hide'>
                             <img src={hide.hide_works ? hide.hide_off : hide.hide_on} alt="eye" />
                         </div>

@@ -8,15 +8,16 @@ function ParticipantsCards (props) {
     const [cardData, setCardData] = useState(props.card);
 
     function saveForm () {
-        setAllPart((prev) => {
-            prev[props.idx] = cardData;
-            return prev;
-        })
-
         setCardData((prev) => {
             let temp = {...prev};
             temp.edit_window = false;
             return temp;
+        })
+        setAllPart((prev) => {
+            let cardToSave = {...cardData};
+            cardToSave.edit_window = false;
+            prev[props.idx] = cardToSave;
+            return prev;
         })
         setAboutCount(prev => prev = prev - 1);
     }
@@ -30,7 +31,6 @@ function ParticipantsCards (props) {
             temp.city = props.card.city;
             return temp;
         })
-
         setCardData((prev) => {
             let temp = {...prev};
             temp.edit_window = false;
